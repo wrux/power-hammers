@@ -22,18 +22,18 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
+        "collection": "all",
+        "products_to_show": 8,
         "title": "Featured products",
         "heading_size": "h1",
         "description": "<p>High-Quality Power Hammers and tooling for Every Blacksmith</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "outline",
-        "enable_desktop_slider": false,
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
@@ -58,18 +58,21 @@
         },
         "featured_collection_GrFWih": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "solid-fuel-forges"
           }
         },
         "featured_collection_LWiweG": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "gas-forges"
           }
         },
         "featured_collection_rj4R8Q": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "stands"
           }
@@ -127,6 +130,7 @@
         },
         "featured_collection_68xfbW": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "becma"
           }
@@ -139,6 +143,7 @@
         },
         "featured_collection_pcJ3xB": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "say-mak"
           }
