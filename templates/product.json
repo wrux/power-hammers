@@ -23,10 +23,6 @@
           "type": "title",
           "settings": {}
         },
-        "contact_or_buy_8LKAbm": {
-          "type": "contact-or-buy",
-          "settings": {}
-        },
         "variant_picker": {
           "type": "variant_picker",
           "disabled": true,
@@ -54,7 +50,6 @@
       "block_order": [
         "text_P83agm",
         "title",
-        "contact_or_buy_8LKAbm",
         "variant_picker",
         "price_pi6Ccn",
         "buy_buttons",
