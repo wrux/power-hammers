@@ -86,6 +86,7 @@
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
           {%- for block in section.blocks -%}
+            <span>type: {{ block.type }}</span>
             {%- case block.type -%}
               {%- when '@app' -%}
                 {% render block %}
@@ -467,25 +468,27 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 
-              {% when 'custom-buy-or-form' %}
+              {% when 'contact_or_buy' %}
                 {% if product.metafields.custom.disable_buy == true %}
                   <div>
                     <h3>Contact us about this product</h3>
                   </div>
-                  <modal-opener
-                    class="product-popup-modal__opener quick-add-hidden"
-                    data-modal="#PopupModal-{{ block.id }}"
-                    {{ block.shopify_attributes }}
-                  >
-                    <button
-                      id="ProductPopup-{{ block.id }}"
-                      class="product-popup-modal__button link"
-                      type="button"
-                      aria-haspopup="dialog"
+                  {% comment %}
+                    <modal-opener
+                      class="product-popup-modal__opener quick-add-hidden"
+                      data-modal="#PopupModal-{{ block.id }}"
+                      {{ block.shopify_attributes }}
                     >
-                      TEST
-                    </button>
-                  </modal-opener>
+                      <button
+                        id="ProductPopup-{{ block.id }}"
+                        class="product-popup-modal__button link"
+                        type="button"
+                        aria-haspopup="dialog"
+                      >
+                        TEST
+                      </button>
+                    </modal-opener>
+                  {% endcomment %}
 
                 {% else %}
                   {%- render 'buy-buttons',
@@ -928,7 +931,7 @@
       ]
     },
     {
-      "type": "contact-or-buy",
+      "type": "contact_or_buy",
       "name": "Buy or Contact Form",
       "settings": []
     },
