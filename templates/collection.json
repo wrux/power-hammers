@@ -22,6 +22,7 @@
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 5,
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
@@ -32,14 +33,29 @@
         "enable_filtering": false,
         "filter_type": "vertical",
         "enable_sorting": false,
-        "columns_mobile": "2",
         "padding_top": 64,
         "padding_bottom": 64
+      }
+    },
+    "video_QJCDQ8": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "Sahinler SM 60",
+        "heading_size": "h2",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=RDr6r8txDd0",
+        "description": "Pneumatic Forging Hammer - Sahinler SM60",
+        "full_width": true,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "video_QJCDQ8"
   ]
 }
