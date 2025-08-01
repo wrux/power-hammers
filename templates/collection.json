@@ -45,6 +45,7 @@
         "heading_size": "h2",
         "enable_video_looping": false,
         "video_url": "https://www.youtube.com/watch?v=RDr6r8txDd0",
+        "cover_image": "shopify://shop_images/ThumbNail_SM60.png",
         "description": "Pneumatic Forging Hammer - Sahinler SM60",
         "full_width": true,
         "color_scheme": "",
