@@ -3,7 +3,7 @@
 
   {%- form 'contact',
       id: 'requestInvoice',
-      return_to: product.url | append: '#requestInvoice',
+      return_to: "{{ product.url }}#requestInvoice",
       class: 'request-invoice-form'
   -%}
     <h3><strong>Request an invoice</strong></h3>
