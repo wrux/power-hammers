@@ -6,11 +6,12 @@
     <p>If you need to request an invoice for your accounting requirements, please use this form below.</p>
 
     <form id="ajaxRequestInvoiceForm" class="request-invoice-form">
-      <!-- Capture product name -->
       <input type="hidden" name="contact[product]" value="{{ product.title }}">
-
       <label for="your-email">Your email:</label>
       <input id="your-email" name="contact[email]" type="email" placeholder="Your email" required>
+
+      <!-- Shopify CAPTCHA -->
+      {{ form | recaptcha }}
 
       <button type="submit" id="ajaxSubmitButton" class="product-form__submit button button--full-width button--secondary">
         Request an invoice
@@ -29,25 +30,23 @@
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        // Disable button
         submitButton.disabled = true;
         submitButton.textContent = "Submitting...";
 
         const formData = new FormData(form);
-        formData.append('form_type', 'contact'); // required by Shopify
-        formData.append('utf8', '✓');            // required by Shopify
+
+        // Include Shopify CAPTCHA response
+        const captchaInput = form.querySelector('input[name="g-recaptcha-response"]');
+        if (captchaInput) formData.append('g-recaptcha-response', captchaInput.value);
+
+        formData.append('form_type', 'contact');
+        formData.append('utf8', '✓');
 
         try {
-          const response = await fetch("/contact", {
-            method: "POST",
-            body: formData,
-          });
+          const response = await fetch("/contact", { method: "POST", body: formData });
 
           if (response.ok) {
-            // Hide form
             form.style.display = "none";
-
-            // Show success message
             messageDiv.innerHTML = '<p class="request-invoice-success">✅ Your invoice request has been sent. We’ll get back to you shortly.</p>';
           } else {
             messageDiv.innerHTML = '<p class="request-invoice-error">⚠️ There was an error submitting your request. Please try again.</p>';
