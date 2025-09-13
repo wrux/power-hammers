@@ -1,6 +1,5 @@
-{{ 'request-invoice.css' | asset_url | stylesheet_tag }}
-
 {% if product.metafields.custom.disable_buy == true %}
+    {{ 'request-invoice.css' | asset_url | stylesheet_tag }}
 
     {%- form 'contact', id: 'requestInvoice', class: 'request-invoice-form' -%}
         <h3>
