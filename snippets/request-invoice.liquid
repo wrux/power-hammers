@@ -1,16 +1,20 @@
-{%- form 'contact', id: 'requestInvoice', class: 'request-invoice-form' -%}
-    <h3>
-        <strong>Request an invoice</strong>
-    </h3>
+{% if (metafields.product.custom.disable_buy == 'true') %}
 
-    <p>
-        If you need to request an invoice for your accounting requirements, please use this form below.
-    </p>
+    {%- form 'contact', id: 'requestInvoice', class: 'request-invoice-form' -%}
+        <h3>
+            <strong>Request an invoice</strong>
+        </h3>
 
-    <input type="hidden" value="{{ product.title }}">
+        <p>
+            If you need to request an invoice for your accounting requirements, please use this form below.
+        </p>
 
-    <label for="your-email">Your email:</label>
-    <input id="your-email" type="email" placeholder="Your email">
-    <button type="submit">Request an invoice</button>
+        <input type="hidden" value="{{ product.title }}">
 
-{%- endform -%}
+        <label for="your-email">Your email:</label>
+        <input id="your-email" type="email" placeholder="Your email">
+        <button type="submit">Request an invoice</button>
+
+    {%- endform -%}
+
+{% endif %}
