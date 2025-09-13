@@ -12,3 +12,8 @@
 .request-invoice-form label {
     display: block;
 }
+
+.request-invoice-form button {
+    background: var(--gradient-background);
+    color: rgb(var(--color-foreground));
+}
