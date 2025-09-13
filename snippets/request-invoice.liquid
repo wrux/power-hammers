@@ -1,4 +1,4 @@
-{{ 'collection.css' | asset_url | stylesheet_tag }}
+{{ 'request-invoice.css' | asset_url | stylesheet_tag }}
 
 {% if product.metafields.custom.disable_buy == true %}
 
@@ -15,7 +15,10 @@
 
         <label for="your-email">Your email:</label>
         <input id="your-email" type="email" placeholder="Your email">
-        <button type="submit">Request an invoice</button>
+
+        <button type="submit" class="product-form__submit button button--full-width button--secondary">
+            Request an invoice
+        </button>
 
     {%- endform -%}
 
