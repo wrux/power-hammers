@@ -7,3 +7,8 @@
 .request-invoice-form h3 {
     margin-top: 0;
 }
+
+
+.request-invoice-form label {
+    display: block;
+}
