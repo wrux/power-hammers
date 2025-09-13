@@ -1,4 +1,4 @@
-{% if (product.metafields.custom.disable_buy == true) %}
+{% if (product.metafields.custom.disable_buy == 'true') %}
 
     {%- form 'contact', id: 'requestInvoice', class: 'request-invoice-form' -%}
         <h3>
