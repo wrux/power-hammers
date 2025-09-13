@@ -1,24 +1,33 @@
 {% if product.metafields.custom.disable_buy == true %}
-    {{ 'request-invoice.css' | asset_url | stylesheet_tag }}
+  {{ 'request-invoice.css' | asset_url | stylesheet_tag }}
 
-    {%- form 'contact', id: 'requestInvoice', return_to: "/", class: 'request-invoice-form' -%}
-        <h3>
-            <strong>Request an invoice</strong>
-        </h3>
+  {%- form 'contact', id: 'requestInvoice', return_to: product.url, class: 'request-invoice-form' -%}
+    <h3>
+      <strong>Request an invoice</strong>
+    </h3>
 
-        <p>
-            If you need to request an invoice for your accounting requirements, please use this form below.
-        </p>
+    <p>
+      If you need to request an invoice for your accounting requirements, please use this form below.
+    </p>
 
-        <input type="hidden" value="{{ product.title }}">
+    <!-- Hidden field to capture product -->
+    <input type="hidden" name="contact[product]" value="{{ product.title }}">
 
-        <label for="your-email">Your email:</label>
-        <input id="your-email" type="email" placeholder="Your email">
+    <label for="your-email">Your email:</label>
+    <input id="your-email" name="contact[email]" type="email" placeholder="Your email" required>
 
-        <button type="submit" class="product-form__submit button button--full-width button--secondary">
-            Request an invoice
-        </button>
+    <button type="submit" class="product-form__submit button button--full-width button--secondary">
+      Request an invoice
+    </button>
+  {%- endform -%}
 
-    {%- endform -%}
-
+  {% if form.posted_successfully? %}
+    <p class="request-invoice-success">
+      ✅ Your invoice request has been sent. We’ll get back to you shortly.
+    </p>
+  {% elsif form.errors %}
+    <p class="request-invoice-error">
+      ⚠️ There was an error submitting your request. Please try again.
+    </p>
+  {% endif %}
 {% endif %}
