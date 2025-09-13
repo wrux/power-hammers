@@ -1,3 +1,7 @@
 {%- form 'contact', id: 'requestInvoice', class: 'request-invoice-form' -%}
-    <h3>Request an invoice</h3>
+    <h3>
+        <strong>Request an invoice</strong>
+    </h3>
+
+    <input type="hidden" value="{{ product.title }}">
 {%- endform -%}
