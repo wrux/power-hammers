@@ -35,7 +35,11 @@
     assign money_price_max = price_max | money_with_currency
   endif
 
-  if (target == product and product.price_varies) or (target == product and product.price_varies == false and product.metafields.custom.disable_buy == true) or (target != product and product.metafields.custom.disable_buy == true)
+  if target == product and product.price_varies
+    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  elsif target == product and product.price_varies == false and product.metafields.custom.disable_buy == true
+    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  elsif target != product and product.metafields.custom.disable_buy == true
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
 -%}
