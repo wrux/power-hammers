@@ -1,65 +1,37 @@
 {% if product.metafields.custom.disable_buy == true %}
   {{ 'request-invoice.css' | asset_url | stylesheet_tag }}
 
-  <div id="requestInvoice">
+  {%- form 'contact',
+      id: 'requestInvoice',
+      return_to: "{{ product.url }}#requestInvoice",
+      class: 'request-invoice-form'
+  -%}
     <h3><strong>Request an invoice</strong></h3>
+
     <p>If you need to request an invoice for your accounting requirements, please use this form below.</p>
 
-    <form id="ajaxRequestInvoiceForm" class="request-invoice-form">
-      <input type="hidden" name="contact[product]" value="{{ product.title }}">
-      <label for="your-email">Your email:</label>
-      <input id="your-email" name="contact[email]" type="email" placeholder="Your email" required>
+    <!-- Capture product name -->
+    <input type="hidden" name="contact[product]" value="{{ product.title }}">
 
-      <!-- Shopify CAPTCHA -->
-      {{ form | recaptcha }}
+    <label for="your-email">Your email:</label>
+    <input id="your-email"
+           name="contact[email]"
+           type="email"
+           placeholder="Your email"
+           required>
 
-      <button type="submit" id="ajaxSubmitButton" class="product-form__submit button button--full-width button--secondary">
-        Request an invoice
-      </button>
-    </form>
+    <button type="submit" class="product-form__submit button button--full-width button--secondary">
+      Request an invoice
+    </button>
+  {%- endform -%}
 
-    <div id="requestInvoiceMessage"></div>
-  </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("ajaxRequestInvoiceForm");
-      const submitButton = document.getElementById("ajaxSubmitButton");
-      const messageDiv = document.getElementById("requestInvoiceMessage");
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        submitButton.disabled = true;
-        submitButton.textContent = "Submitting...";
-
-        const formData = new FormData(form);
-
-        // Include Shopify CAPTCHA response
-        const captchaInput = form.querySelector('input[name="g-recaptcha-response"]');
-        if (captchaInput) formData.append('g-recaptcha-response', captchaInput.value);
-
-        formData.append('form_type', 'contact');
-        formData.append('utf8', '✓');
-
-        try {
-          const response = await fetch("/contact", { method: "POST", body: formData });
-
-          if (response.ok) {
-            form.style.display = "none";
-            messageDiv.innerHTML = '<p class="request-invoice-success">✅ Your invoice request has been sent. We’ll get back to you shortly.</p>';
-          } else {
-            messageDiv.innerHTML = '<p class="request-invoice-error">⚠️ There was an error submitting your request. Please try again.</p>';
-            submitButton.disabled = false;
-            submitButton.textContent = "Request an invoice";
-          }
-        } catch (error) {
-          messageDiv.innerHTML = '<p class="request-invoice-error">⚠️ Network error. Please try again.</p>';
-          submitButton.disabled = false;
-          submitButton.textContent = "Request an invoice";
-          console.error(error);
-        }
-      });
-    });
-  </script>
+  {% if form.posted_successfully? %}
+    <p id="requestInvoiceMessage" class="request-invoice-success">
+      ✅ Your invoice request has been sent. We’ll get back to you shortly.
+    </p>
+  {% elsif form.errors %}
+    <p id="requestInvoiceMessage" class="request-invoice-error">
+      ⚠️ There was an error submitting your request. Please try again.
+    </p>
+  {% endif %}
 {% endif %}
