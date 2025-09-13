@@ -1,68 +1,23 @@
 .request-invoice-form {
-    border: 1px solid var(--color-border); /* matches Horizon border */
-    border-radius: 0.5rem;                /* slightly rounded corners */
-    padding: 2.5rem;                      /* more spacious padding */
-    background-color: var(--color-background-subtle); /* subtle background */
-    max-width: 500px;                     /* constrain width for readability */
-    margin: 2rem auto;                     /* center form on page */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* subtle shadow for depth */
+    border: 1px solid black;
+    border-top: 1px solid black;
+    padding: 40px;
 }
 
 .request-invoice-form h3 {
     margin-top: 0;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: var(--color-foreground);
+}
+
+.request-invoice-form input[type="email"] {
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .request-invoice-form label {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: var(--color-foreground-subtle);
-}
-
-.request-invoice-form input[type="email"],
-.request-invoice-form input[type="text"],
-.request-invoice-form textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 0.375rem;
-    background-color: var(--color-background);
-    font-size: 1rem;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.request-invoice-form input[type="email"]:focus,
-.request-invoice-form input[type="text"]:focus,
-.request-invoice-form textarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.2);
 }
 
 .request-invoice-form button {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: none;
-    border-radius: 0.375rem;
     background: var(--gradient-background);
     color: rgb(var(--color-foreground));
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
-
-.request-invoice-form button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.request-invoice-form button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
 }
