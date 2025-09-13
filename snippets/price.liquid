@@ -39,7 +39,7 @@
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
 
-  if target == product and product.metafields.custom.disable_buy == true and (not product.price_varies)
+  if target == product and product.metafields.custom.disable_buy == true and product.price_varies == false
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
 -%}
