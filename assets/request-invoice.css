@@ -11,7 +11,7 @@
 .request-invoice-form input[type="email"] {
     width: 100%;
     padding: 0.5rem 0.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .request-invoice-form label {
