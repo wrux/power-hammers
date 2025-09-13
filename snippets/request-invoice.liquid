@@ -2,50 +2,65 @@
   {{ 'request-invoice.css' | asset_url | stylesheet_tag }}
 
   <div id="requestInvoice">
-    {%- form 'contact',
-        id: 'requestInvoiceForm',
-        class: 'request-invoice-form'
-    -%}
-      <h3><strong>Request an invoice</strong></h3>
+    <h3><strong>Request an invoice</strong></h3>
+    <p>If you need to request an invoice for your accounting requirements, please use this form below.</p>
 
-      <p>If you need to request an invoice for your accounting requirements, please use this form below.</p>
-
+    <form id="ajaxRequestInvoiceForm" class="request-invoice-form">
       <!-- Capture product name -->
       <input type="hidden" name="contact[product]" value="{{ product.title }}">
 
       <label for="your-email">Your email:</label>
-      <input id="your-email"
-             name="contact[email]"
-             type="email"
-             placeholder="Your email"
-             required>
+      <input id="your-email" name="contact[email]" type="email" placeholder="Your email" required>
 
-      <button type="submit" class="product-form__submit button button--full-width button--secondary">
+      <button type="submit" id="ajaxSubmitButton" class="product-form__submit button button--full-width button--secondary">
         Request an invoice
       </button>
-    {%- endform -%}
+    </form>
+
+    <div id="requestInvoiceMessage"></div>
   </div>
 
-  <!-- JavaScript to handle homepage redirect and show success message -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const params = new URLSearchParams(window.location.search);
+      const form = document.getElementById("ajaxRequestInvoiceForm");
+      const submitButton = document.getElementById("ajaxSubmitButton");
+      const messageDiv = document.getElementById("requestInvoiceMessage");
 
-      // If the contact form was just submitted
-      if (params.get("contact_posted") === "true") {
-        // Redirect back to the same product page with anchor and success flag
-        const redirectUrl = "{{ product.url }}#requestInvoice?success=true";
-        window.history.replaceState({}, "", redirectUrl);
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-        // Show success message inline
-        const formDiv = document.getElementById("requestInvoice");
-        if (formDiv) {
-          const successMsg = document.createElement("p");
-          successMsg.className = "request-invoice-success";
-          successMsg.textContent = "✅ Your invoice request has been sent. We’ll get back to you shortly.";
-          formDiv.prepend(successMsg);
+        // Disable button
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting...";
+
+        const formData = new FormData(form);
+        formData.append('form_type', 'contact'); // required by Shopify
+        formData.append('utf8', '✓');            // required by Shopify
+
+        try {
+          const response = await fetch("/contact", {
+            method: "POST",
+            body: formData,
+          });
+
+          if (response.ok) {
+            // Hide form
+            form.style.display = "none";
+
+            // Show success message
+            messageDiv.innerHTML = '<p class="request-invoice-success">✅ Your invoice request has been sent. We’ll get back to you shortly.</p>';
+          } else {
+            messageDiv.innerHTML = '<p class="request-invoice-error">⚠️ There was an error submitting your request. Please try again.</p>';
+            submitButton.disabled = false;
+            submitButton.textContent = "Request an invoice";
+          }
+        } catch (error) {
+          messageDiv.innerHTML = '<p class="request-invoice-error">⚠️ Network error. Please try again.</p>';
+          submitButton.disabled = false;
+          submitButton.textContent = "Request an invoice";
+          console.error(error);
         }
-      }
+      });
     });
   </script>
 {% endif %}
