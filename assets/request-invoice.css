@@ -1,7 +1,7 @@
 .request-invoice-form {
     border: 1px solid black;
     border-top: 1px solid black;
-    padding: 40px;
+    padding: 2rem;
 }
 
 .request-invoice-form h3 {
@@ -10,7 +10,8 @@
 
 .request-invoice-form input[type="email"] {
     width: 100%;
-    margin-bottom: 10px;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .request-invoice-form label {
