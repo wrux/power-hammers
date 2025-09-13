@@ -3,3 +3,7 @@
     border-top: 1px solid black;
     padding: 40px 0;
 }
+
+.request-invoice-form h2 {
+    margin-top: 0;
+}
