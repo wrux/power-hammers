@@ -1,6 +1,8 @@
 {% if product.metafields.custom.disable_buy == true %}
   {{ 'request-invoice.css' | asset_url | stylesheet_tag }}
 
+  {% render 'forms/form.liquid' with form_id: '519883' %}
+
   {%- form 'contact',
       id: 'requestInvoice',
       return_to: "{{ product.url }}#requestInvoice",
