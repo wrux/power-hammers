@@ -503,6 +503,7 @@
                 {% endif %}
 
               {%- when 'buy_buttons' -%}
+                {% if product.metafields.custom.disable_buy != true %}
                 {%- render 'buy-buttons',
                   block: block,
                   product: product,
@@ -510,6 +511,7 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
+                  {% endif %}
 
               {% render 'request-invoice' %}
 
