@@ -3703,6 +3703,6 @@ details-disclosure > details {
 }
 
 /* Hide the "Taxes included. Shipping calculated at checkout." notice */
-.product__tax-shipping {
+.product .product__info-wrapper .product__tax {
   display: none !important;
 }
