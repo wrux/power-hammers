@@ -39,11 +39,14 @@
 
 
 <style>
-  .request-invoice-form > * + * {
-    margin-block-start: 1rem;
+  .request-invoice-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .request-invoice-form__button.button {
+    margin-top: 2rem;
   }
 
   .request-invoice-button-text {
@@ -109,52 +112,60 @@
       <label class="request-invoice-field__label" for="invoice-firstname">
         First Name
       </label>
-      <input
-        class="field__input request-invoice-field__input"
-        type="text"
-        name="firstname"
-        id="invoice-firstname"
-        required
-      />
+      <div class="field">
+        <input
+          class="field__input request-invoice-field__input"
+          type="text"
+          name="firstname"
+          id="invoice-firstname"
+          required
+        />
+      </div>
     </div>
 
     <div class="request-invoice-field">
       <label class="request-invoice-field__label" for="invoice-lastname">
         Last Name
       </label>
-      <input
-        class="field__input request-invoice-field__input"
-        type="text"
-        name="lastname"
-        id="invoice-lastname"
-        required
-      />
+      <div class="field">
+        <input
+          class="field__input request-invoice-field__input"
+          type="text"
+          name="lastname"
+          id="invoice-lastname"
+          required
+        />
+      </div>
     </div>
 
     <div class="request-invoice-field">
-      <label class="request-invoice-field__label" for="invoice-email"
-        >Email</label
-      >
-      <input
-        class="field__input request-invoice-field__input"
-        type="email"
-        name="email"
-        id="invoice-email"
-        required
-      />
+      <label class="request-invoice-field__label" for="invoice-email">
+        Email
+      </label>
+      <div class="field">
+        <input
+          class="field__input request-invoice-field__input"
+          type="email"
+          name="email"
+          id="invoice-email"
+          required
+        />
+      </div>
     </div>
 
     <div class="request-invoice-field">
-      <label class="request-invoice-field__label" for="invoice-phone"
-        >Phone Number</label
-      >
-      <input
-        class="field__input request-invoice-field__input"
-        type="text"
-        name="phone"
-        id="invoice-phone"
-        required
-      />
+      <label class="request-invoice-field__label" for="invoice-phone">
+        Phone Number
+      </label>
+      <div class="field">
+        <input
+          class="field__input request-invoice-field__input"
+          type="text"
+          name="phone"
+          id="invoice-phone"
+          required
+        />
+      </div>
     </div>
 
     <button
