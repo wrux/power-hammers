@@ -3701,3 +3701,8 @@ details-disclosure > details {
     --hero-img-offset: -12rem;
   }
 }
+
+/* Hide the "Taxes included. Shipping calculated at checkout." notice */
+.product__tax-shipping {
+  display: none !important;
+}
