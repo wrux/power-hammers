@@ -1,24 +1,55 @@
 .request-invoice-form {
-    border: 1px solid black;
-    border-top: 1px solid black;
-    padding: 2rem;
+display: flex;
+flex-direction: column;
+gap: 1rem;
 }
 
-.request-invoice-form h3 {
-    margin-top: 0;
+.request-invoice-form__button.button {
+margin-top: 2rem;
 }
 
-.request-invoice-form input[type="email"] {
-    width: 100%;
-    padding: 0.5rem 0.75rem;
-    margin-bottom: 2rem;
+.request-invoice-button-text {
+display: inline;
 }
 
-.request-invoice-form label {
-    display: block;
+.request-invoice-spinner {
+width: 20px;
+height: 20px;
+animation: request-invoice-spin 1s linear infinite;
+margin-left: 0.5rem;
 }
 
-.request-invoice-form button {
-    background: var(--gradient-background);
-    color: rgb(var(--color-foreground));
+.request-invoice-spinner.hidden {
+display: none;
+}
+
+.request-invoice-message {
+margin-top: 1rem;
+padding: 0.75rem;
+border-radius: 0.375rem;
+}
+
+.request-invoice-message--success {
+color: #059669;
+background-color: #ecfdf5;
+border: 1px solid #a7f3d0;
+}
+
+.request-invoice-message--error {
+color: #dc2626;
+background-color: #fef2f2;
+border: 1px solid #fecaca;
+}
+
+.request-invoice-field__input.field__input {
+padding-block: 4px;
+}
+
+@keyframes request-invoice-spin {
+from {
+    transform: rotate(0deg);
+}
+to {
+    transform: rotate(360deg);
+}
 }
