@@ -38,18 +38,12 @@
 {% endif %} {% endcomment %}
 
 
-<div style="padding: 2rem; background: red;">
-<script src="https://js-eu1.hsforms.net/forms/embed/146360371.js" defer></script>
-<div class="hs-form-frame" data-region="eu1" data-form-id="09167456-606a-4c5d-a74a-c039bed0d71b" data-portal-id="146360371"></div>
-</div>
-
-
 <div id="hubspot-request-invoice-form" class="form-container">
   <h3><strong>Request an invoice</strong></h3>
   <p>If you need to request an invoice for your accounting requirements, please use this form below.</p>
 
   <form id="invoiceForm" class="form">
-    <input type="hidden" name="product" value="{{ product.title }}">
+    <input type="text" name="product" value="{{ product.title }}">
 
     <div class="form-group">
       <label for="invoice-firstname">First Name</label>
@@ -64,6 +58,11 @@
     <div class="form-group">
       <label for="invoice-email">Email</label>
       <input class="input input--text input--full" type="email" name="email" id="invoice-email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="invoice-email">Phonenumber</label>
+      <input class="input input--text input--full" type="text" name="phone" id="invoice-phone" required>
     </div>
 
     <div class="form-group">
