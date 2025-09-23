@@ -38,22 +38,140 @@
 {% endif %} {% endcomment %}
 
 
-<div id="hubspot-request-invoice-form" class="page-width">
-  <div class="rte">
+<style>
+  .request-invoice-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-foreground, #000);
+  }
+
+  .request-invoice-description {
+    margin-bottom: 2rem;
+    color: var(--color-foreground-75, #666);
+    line-height: 1.6;
+  }
+
+  .request-invoice-form {
+    max-width: 500px;
+  }
+
+  .request-invoice-field {
+    margin-bottom: 1.5rem;
+  }
+
+  .request-invoice-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-foreground, #000);
+  }
+
+  .request-invoice-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border, #ddd);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    background-color: var(--color-background, #fff);
+    color: var(--color-foreground, #000);
+    transition: border-color 0.2s ease;
+  }
+
+  .request-invoice-input:focus {
+    outline: none;
+    border-color: var(--color-accent, #007bff);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  }
+
+  .request-invoice-button {
+    background-color: var(--color-button-primary, #007bff);
+    color: var(--color-button-primary-text, #fff);
+    border: none;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+  }
+
+  .request-invoice-button:hover:not(:disabled) {
+    background-color: var(--color-button-primary-hover, #0056b3);
+  }
+
+  .request-invoice-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .request-invoice-button-text {
+    display: inline;
+  }
+
+  .request-invoice-spinner {
+    width: 20px;
+    height: 20px;
+    animation: request-invoice-spin 1s linear infinite;
+    margin-left: 0.5rem;
+  }
+
+  .request-invoice-spinner.hidden {
+    display: none;
+  }
+
+  .request-invoice-message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+  }
+
+  .request-invoice-message--success {
+    color: #059669;
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+  }
+
+  .request-invoice-message--error {
+    color: #dc2626;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+
+  @keyframes request-invoice-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<div id="hubspot-request-invoice-form">
+  <div class="request-invoice-content">
     <h2 class="title title--primary">Request an invoice</h2>
-    <p>
+    <p class="request-invoice-description">
       If you need to request an invoice for your accounting requirements, please
       use this form below.
     </p>
   </div>
 
-  <form id="invoiceForm" class="contact__form">
-    <input type="hidden" name="product" value="{{ product.title }}" />
+  <form id="invoiceForm" class="request-invoice-form">
+    <input type="hidden" name="hidden_field" value="{{ product.title }}" />
 
-    <div class="field">
-      <label class="field__label" for="invoice-firstname">First Name</label>
+    <div class="request-invoice-field">
+      <label class="request-invoice-label" for="invoice-firstname"
+        >First Name</label
+      >
       <input
-        class="field__input"
+        class="request-invoice-input"
         type="text"
         name="firstname"
         id="invoice-firstname"
@@ -61,10 +179,12 @@
       />
     </div>
 
-    <div class="field">
-      <label class="field__label" for="invoice-lastname">Last Name</label>
+    <div class="request-invoice-field">
+      <label class="request-invoice-label" for="invoice-lastname"
+        >Last Name</label
+      >
       <input
-        class="field__input"
+        class="request-invoice-input"
         type="text"
         name="lastname"
         id="invoice-lastname"
@@ -72,10 +192,10 @@
       />
     </div>
 
-    <div class="field">
-      <label class="field__label" for="invoice-email">Email</label>
+    <div class="request-invoice-field">
+      <label class="request-invoice-label" for="invoice-email">Email</label>
       <input
-        class="field__input"
+        class="request-invoice-input"
         type="email"
         name="email"
         id="invoice-email"
@@ -83,10 +203,12 @@
       />
     </div>
 
-    <div class="field">
-      <label class="field__label" for="invoice-phone">Phone Number</label>
+    <div class="request-invoice-field">
+      <label class="request-invoice-label" for="invoice-phone"
+        >Phone Number</label
+      >
       <input
-        class="field__input"
+        class="request-invoice-input"
         type="text"
         name="phone"
         id="invoice-phone"
@@ -94,16 +216,14 @@
       />
     </div>
 
-    <button type="submit" id="invoice-submit" class="button button--primary">
-      <span class="button-text">Request an invoice</span>
+    <button type="submit" id="invoice-submit" class="request-invoice-button">
+      <span class="request-invoice-button-text">Request an invoice</span>
       <svg
         id="loadingSpinner"
-        class="loading-spinner hidden"
+        class="request-invoice-spinner hidden"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        width="20"
-        height="20"
       >
         <circle
           class="opacity-25"
@@ -122,7 +242,7 @@
     </button>
   </form>
 
-  <p id="formMessage" class="form__message"></p>
+  <p id="formMessage" class="request-invoice-message"></p>
 </div>
 
 <script>
@@ -133,7 +253,9 @@
 
       const submitBtn = document.getElementById("invoice-submit");
       const spinner = document.getElementById("loadingSpinner");
-      const buttonText = submitBtn.querySelector(".button-text");
+      const buttonText = submitBtn.querySelector(
+        ".request-invoice-button-text"
+      );
       const formMessage = document.getElementById("formMessage");
 
       // Show loading state
@@ -141,13 +263,13 @@
       spinner.classList.remove("hidden");
       buttonText.style.display = "none";
       formMessage.textContent = "";
-      formMessage.className = "form__message";
+      formMessage.className = "request-invoice-message";
 
       // Gather form data in HubSpot expected format
       const formData = new FormData();
       formData.append(
-        "product",
-        document.querySelector('input[name="product"]').value
+        "hidden_field",
+        document.querySelector('input[name="hidden_field"]').value
       );
       formData.append(
         "firstname",
@@ -171,7 +293,7 @@
 
         if (response.ok) {
           formMessage.textContent = "Thanks! Your request has been submitted.";
-          formMessage.classList.add("form__message--success");
+          formMessage.classList.add("request-invoice-message--success");
           document.getElementById("invoiceForm").reset();
         } else {
           throw new Error("Form submission failed");
@@ -179,7 +301,7 @@
       } catch (error) {
         formMessage.textContent =
           "Oops! Something went wrong. Please try again.";
-        formMessage.classList.add("form__message--error");
+        formMessage.classList.add("request-invoice-message--error");
       } finally {
         // Reset loading state
         submitBtn.disabled = false;
