@@ -1,0 +1,168 @@
+{{ 'request-invoice.css' | asset_url | stylesheet_tag }}
+
+<div id="hubspot-request-invoice-form">
+  <h2 class="title title--primary">Request an invoice</h2>
+  <p>
+    If you need to request an invoice for your accounting requirements, please
+    use this form below.
+  </p>
+
+  <form id="invoiceForm" class="request-invoice-form">
+    <input type="hidden" name="product" value="{{ product.title }}" />
+
+    <div class="request-invoice-field">
+      <label class="request-invoice-field__label" for="invoice-firstname">
+        First Name
+      </label>
+      <div class="field">
+        <input
+          class="field__input request-invoice-field__input"
+          type="text"
+          name="firstname"
+          id="invoice-firstname"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="request-invoice-field">
+      <label class="request-invoice-field__label" for="invoice-lastname">
+        Last Name
+      </label>
+      <div class="field">
+        <input
+          class="field__input request-invoice-field__input"
+          type="text"
+          name="lastname"
+          id="invoice-lastname"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="request-invoice-field">
+      <label class="request-invoice-field__label" for="invoice-email">
+        Email
+      </label>
+      <div class="field">
+        <input
+          class="field__input request-invoice-field__input"
+          type="email"
+          name="email"
+          id="invoice-email"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="request-invoice-field">
+      <label class="request-invoice-field__label" for="invoice-phone">
+        Phone Number
+      </label>
+      <div class="field">
+        <input
+          class="field__input request-invoice-field__input"
+          type="text"
+          name="phone"
+          id="invoice-phone"
+          required
+        />
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      id="invoice-submit"
+      class="request-invoice-form__button button"
+    >
+      Request an invoice
+
+      <svg
+        id="loadingSpinner"
+        class="request-invoice-spinner hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          class="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"
+        ></circle>
+        <path
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8v8z"
+        ></path>
+      </svg>
+    </button>
+  </form>
+
+  <p id="formMessage" class="request-invoice-message"></p>
+</div>
+
+<script>
+  const form = document.getElementById("invoiceForm");
+
+  if (form) {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const submitBtn = document.getElementById("invoice-submit");
+      const spinner = document.getElementById("loadingSpinner");
+      const formMessage = document.getElementById("formMessage");
+
+      // Show loading state
+      submitBtn.disabled = true;
+      spinner.classList.remove("hidden");
+      formMessage.textContent = "";
+      formMessage.className = "request-invoice-message";
+
+      // Gather form data in HubSpot expected format
+      const formData = new FormData();
+      formData.append(
+        "product",
+        document.querySelector('input[name="product"]').value
+      );
+      formData.append(
+        "firstname",
+        document.getElementById("invoice-firstname").value
+      );
+      formData.append(
+        "lastname",
+        document.getElementById("invoice-lastname").value
+      );
+      formData.append("email", document.getElementById("invoice-email").value);
+      formData.append("phone", document.getElementById("invoice-phone").value);
+
+      try {
+        const response = await fetch(
+          "https://forms.hubspot.com/uploads/form/v2/146360371/ecc249b0-b8df-46b2-8a84-0485f91c5eee",
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+
+        if (response.ok) {
+          formMessage.textContent = "Thanks! Your request has been submitted.";
+          formMessage.classList.add("request-invoice-message--success");
+          document.getElementById("invoiceForm").reset();
+        } else {
+          throw new Error("Form submission failed");
+        }
+      } catch (error) {
+        formMessage.textContent =
+          "Oops! Something went wrong. Please try again.";
+        formMessage.classList.add("request-invoice-message--error");
+      } finally {
+        // Reset loading state
+        submitBtn.disabled = false;
+        spinner.classList.add("hidden");
+      }
+    });
+  }
+</script>
