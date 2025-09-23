@@ -1,3 +1,5 @@
+{{ 'request-invoice.css' | asset_url | stylesheet_tag }}
+
 <div id="hubspot-request-invoice-form">
   <h2 class="title title--primary">Request an invoice</h2>
   <p>
@@ -77,7 +79,7 @@
 
       <svg
         id="loadingSpinner"
-        class="loading-spinner hidden"
+        class="request-invoice-spinner hidden"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -110,15 +112,11 @@
 
       const submitBtn = document.getElementById("invoice-submit");
       const spinner = document.getElementById("loadingSpinner");
-      const buttonText = submitBtn.querySelector(
-        ".request-invoice-button-text"
-      );
       const formMessage = document.getElementById("formMessage");
 
       // Show loading state
       submitBtn.disabled = true;
       spinner.classList.remove("hidden");
-      buttonText.style.display = "none";
       formMessage.textContent = "";
       formMessage.className = "request-invoice-message";
 
@@ -163,7 +161,6 @@
         // Reset loading state
         submitBtn.disabled = false;
         spinner.classList.add("hidden");
-        buttonText.style.display = "inline";
       }
     });
 </script>
