@@ -40,36 +40,36 @@
 
 
 
-<!-- HubSpot Request Invoice Form -->
 <div id="hubspot-request-invoice-form" class="form-container">
-  <h2 class="form-title">Request an Invoice</h2>
+  <h3><strong>Request an invoice</strong></h3>
+  <p>If you need to request an invoice for your accounting requirements, please use this form below.</p>
 
   <form id="invoiceForm" class="form">
-    <!-- Hidden product field -->
     <input type="hidden" name="product" value="{{ product.title }}">
 
     <div class="form-group">
-      <label for="firstname">First Name</label>
-      <input type="text" name="firstname" id="firstname" required>
+      <label for="invoice-firstname">First Name</label>
+      <input class="input input--text input--full" type="text" name="firstname" id="invoice-firstname" required>
     </div>
 
     <div class="form-group">
-      <label for="lastname">Last Name</label>
-      <input type="text" name="lastname" id="lastname" required>
+      <label for="invoice-lastname">Last Name</label>
+      <input class="input input--text input--full" type="text" name="lastname" id="invoice-lastname" required>
     </div>
 
     <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" required>
+      <label for="invoice-email">Email</label>
+      <input class="input input--text input--full" type="email" name="email" id="invoice-email" required>
     </div>
 
     <div class="form-group">
-      <label for="message">Message</label>
-      <textarea name="message" id="message" rows="4"></textarea>
+      <label for="invoice-message">Message</label>
+      <textarea name="message" id="invoice-message" rows="4"></textarea>
     </div>
 
-    <button type="submit" id="submitBtn" class="submit-btn">
-      <span class="submit-text">Submit</span>
+    <button type="submit" id="invoice-submit" class="product-form__submit button button--full-width button--secondary">
+      Request an invoice
+
       <svg id="loadingSpinner" class="loading-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
