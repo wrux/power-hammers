@@ -9,14 +9,64 @@
  */
 {
   "sections": {
-    "custom_liquid_H4iDYn": {
+    "custom_liquid_MQQYx8": {
       "type": "custom-liquid",
-      "custom_css": [],
+      "custom_css": [
+        "img {/* width: 600px; max-width: 100%; height: auto; */ width: 100%; max-width: 100%; height: 320px; object-fit: cover;}",
+        ".center-children {display: flex; justify-content: center;}"
+      ],
+      "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<div class=\"hero__content center\">\n  <h1 \n    class=\"hero__title rte hlg scroll-trigger animate--slide-in\" \n    data-cascade=\"\" \n    style=\"--animation-order: 1;\"\n  >\n    PowerHammers\n  </h1>\n  \n  <div \n    class=\"hero__content rte scroll-trigger animate--slide-in\" \n    data-cascade=\"\" \n    style=\"--animation-order: 2;\"\n  >\n    <h2>\n      The Original.<br />Since 1987.\n    </h2>\n  </div>\n  \n  <div \n    class=\"scroll-trigger animate--slide-in\" \n    data-cascade=\"\" \n    style=\"--animation-order: 3;\"\n  >\n    <a href=\"/collections/all\" class=\"button button--primary\">View Shop</a>\n  </div>\n</div>\n\n<img \n  class=\"hero__img rte scroll-trigger animate--slide-in\" src=\"https://cdn.shopify.com/s/files/1/0788/3338/5794/files/homepage-hero.svg?v=1732417364\" \n  alt=\"Power hammers and blacksmithing supplies sold at powerhammers.com\" \n  data-cascade=\"\" \n  style=\"--animation-order: 2;\" \n/>",
+        "custom_liquid": "<img \nsrc=\"https://cdn.shopify.com/s/files/1/0788/3338/5794/files/powerhammers_hero.svg?v=1762189737\"\nclass=\"rte scroll-trigger animate--slide-in\"\nstyle=\"--animation-order: 1;\"\nwidth=\"2855\"\nheight=\"1086\"\n/>",
         "color_scheme": "scheme-4",
-        "padding_top": 4,
-        "padding_bottom": 80
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_cqdkmg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_346EG7": {
+          "type": "heading",
+          "settings": {
+            "heading": "PowerHammers",
+            "heading_size": "hxl"
+          }
+        },
+        "text_NNGHXb": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>The Original.<br/>Since 1987.</h2>"
+          }
+        },
+        "button_tRMPEB": {
+          "type": "button",
+          "settings": {
+            "button_label": "View Shop",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_346EG7",
+        "text_NNGHXb",
+        "button_tRMPEB"
+      ],
+      "custom_css": [
+        ".rich-text__heading {font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 24,
+        "padding_bottom": 64
       }
     },
     "featured_collection": {
@@ -24,7 +74,7 @@
       "settings": {
         "collection": "all",
         "products_to_show": 8,
-        "title": "Featured products",
+        "title": "PowerHammers",
         "heading_size": "h1",
         "description": "<p>High-Quality Power Hammers and tooling for Every Blacksmith</p>",
         "show_description": false,
@@ -170,7 +220,8 @@
     }
   },
   "order": [
-    "custom_liquid_H4iDYn",
+    "custom_liquid_MQQYx8",
+    "rich_text_cqdkmg",
     "featured_collection",
     "collection_list_79dp9b",
     "collection_list_DrzUqX"
