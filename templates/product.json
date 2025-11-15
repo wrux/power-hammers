@@ -40,6 +40,13 @@
             "swatch_shape": "none"
           }
         },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
         "description": {
           "type": "description",
           "settings": {}
@@ -51,6 +58,7 @@
         "price_pi6Ccn",
         "contact_or_buy_3zQ9MK",
         "variant_picker",
+        "buy_buttons",
         "description"
       ],
       "settings": {
