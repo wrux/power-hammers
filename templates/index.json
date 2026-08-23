@@ -175,12 +175,6 @@
     "collection_list_DrzUqX": {
       "type": "collection-list",
       "blocks": {
-        "featured_collection_LbeP3Y": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "ayang-forging-press"
-          }
-        },
         "featured_collection_px38FL": {
           "type": "featured_collection",
           "settings": {
@@ -200,6 +194,12 @@
             "collection": "sahinler"
           }
         },
+        "featured_collection_LbeP3Y": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "ayang-forging-press"
+          }
+        },
         "featured_collection_pcJ3xB": {
           "type": "featured_collection",
           "settings": {
@@ -208,10 +208,10 @@
         }
       },
       "block_order": [
-        "featured_collection_LbeP3Y",
         "featured_collection_px38FL",
         "featured_collection_68xfbW",
         "featured_collection_bbK6EW",
+        "featured_collection_LbeP3Y",
         "featured_collection_pcJ3xB"
       ],
       "settings": {
