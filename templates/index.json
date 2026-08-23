@@ -109,16 +109,20 @@
             "collection": "power-hammers"
           }
         },
+        "featured_collection_g4kYtm": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "induction-forges"
+          }
+        },
         "featured_collection_GrFWih": {
           "type": "featured_collection",
-          "disabled": true,
           "settings": {
             "collection": "solid-fuel-forges"
           }
         },
         "featured_collection_LWiweG": {
           "type": "featured_collection",
-          "disabled": true,
           "settings": {
             "collection": "gas-forges"
           }
@@ -152,6 +156,7 @@
       },
       "block_order": [
         "featured_collection_JJqU9Y",
+        "featured_collection_g4kYtm",
         "featured_collection_GrFWih",
         "featured_collection_LWiweG",
         "featured_collection_rj4R8Q",
@@ -181,9 +186,14 @@
             "collection": "anyang-st"
           }
         },
+        "featured_collection_UWTVDM": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "is-forge"
+          }
+        },
         "featured_collection_68xfbW": {
           "type": "featured_collection",
-          "disabled": true,
           "settings": {
             "collection": "becma"
           }
@@ -209,6 +219,7 @@
       },
       "block_order": [
         "featured_collection_px38FL",
+        "featured_collection_UWTVDM",
         "featured_collection_68xfbW",
         "featured_collection_bbK6EW",
         "featured_collection_LbeP3Y",
