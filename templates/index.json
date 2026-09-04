@@ -180,8 +180,16 @@
     "collection_list_DrzUqX": {
       "type": "collection-list",
       "blocks": {
+        "featured_collection_fPdHjc": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "tanerd"
+          }
+        },
         "featured_collection_pHUMw7": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "madni"
           }
@@ -224,12 +232,14 @@
         },
         "featured_collection_mNbL38": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "ebo"
           }
         }
       },
       "block_order": [
+        "featured_collection_fPdHjc",
         "featured_collection_pHUMw7",
         "featured_collection_px38FL",
         "featured_collection_UWTVDM",
