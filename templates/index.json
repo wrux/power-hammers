@@ -180,6 +180,12 @@
     "collection_list_DrzUqX": {
       "type": "collection-list",
       "blocks": {
+        "featured_collection_pHUMw7": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
         "featured_collection_px38FL": {
           "type": "featured_collection",
           "settings": {
@@ -215,15 +221,23 @@
           "settings": {
             "collection": "say-mak"
           }
+        },
+        "featured_collection_mNbL38": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "ebo"
+          }
         }
       },
       "block_order": [
+        "featured_collection_pHUMw7",
         "featured_collection_px38FL",
         "featured_collection_UWTVDM",
         "featured_collection_68xfbW",
         "featured_collection_bbK6EW",
         "featured_collection_LbeP3Y",
-        "featured_collection_pcJ3xB"
+        "featured_collection_pcJ3xB",
+        "featured_collection_mNbL38"
       ],
       "settings": {
         "title": "Our <strong>Brands</strong>",
