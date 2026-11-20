@@ -42,7 +42,19 @@
   elsif target != product and product.metafields.custom.disable_buy == true
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
+  assign uk_enquiry_only = false
+  if localization.country.iso_code == "GB" and product.vendor == "Anyang ST"
+    assign uk_enquiry_only = true
+  endif
 -%}
+
+{%- if uk_enquiry_only -%}
+  <div class="price{% if price_class %} {{ price_class }}{% endif %}">
+    <div class="price__container">
+      <span class="price-item price-item--regular">Price on enquiry</span>
+    </div>
+  </div>
+{%- else -%}
 
 {%- unless target == null and placeholder == null -%}
   <div
@@ -128,3 +140,4 @@
     {%- endif -%}
   </div>
 {% endunless %}
+{%- endif -%}

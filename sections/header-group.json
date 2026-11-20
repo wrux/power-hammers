@@ -17,8 +17,8 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "View our Power Hammer range",
-            "link": "shopify://collections/power-hammers"
+            "text": "Talk to us: (682) 222-9269",
+            "link": "tel:+16822229269"
           }
         }
       },
