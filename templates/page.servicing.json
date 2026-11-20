@@ -11,127 +11,9 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
         "padding_top": 64,
-        "padding_bottom": 64
-      }
-    },
-    "rich_text_RDjCx8": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_bwzpXc": {
-          "type": "heading",
-          "settings": {
-            "heading": "{{ page.title }}",
-            "heading_size": "h1"
-          }
-        },
-        "text_Hpe6Ue": {
-          "type": "text",
-          "settings": {
-            "text": "<p>At PowerHammers we provide expert service and repair for all pneumatic power hammers. With years of experience and a passion for precision, our team ensures that your equipment stays in top working condition through comprehensive maintenance and skilled repairs. Whether you’re dealing with a minor issue or a major breakdown, our technicians are trained to handle any make or model, offering reliable solutions and fast turnaround times.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_bwzpXc",
-        "text_Hpe6Ue"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-4",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 64
-      }
-    },
-    "multicolumn_7x3xkY": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_eCTCmz": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Oiler.jpg",
-            "title": "Retrofits",
-            "text": "<p>Book your hammer upgrade today to incorporate the latest retrofits and ensure peak performance</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_NNbkdm": {
-          "type": "column",
-          "settings": {
-            "title": "On Site Service",
-            "text": "<p>We provide on-site service, with our skilled engineers traveling directly to your location to resolve any issues efficiently.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_RGgKiA": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/paperwork-filing.jpg",
-            "title": "Service contracts",
-            "text": "<p>Tailored service contracts. Enjoy scheduled maintenance, priority repairs, and expert support for uninterrupted operation</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_fdnWyt": {
-          "type": "column",
-          "settings": {
-            "title": "Off Site Service",
-            "text": "<p>Have your hammer serviced at our facility to restore peak performance and reliability.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_E8V8Pg": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/power-hammers-uk.jpg",
-            "title": "Restorations",
-            "text": "<p>Full rebuilds and overhauls for older equipment.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_TiM3aL": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Powerhammer_service_repair.jpg",
-            "title": "Repairs",
-            "text": "<p>We offer expert advice, quality spares, and reliable repairs. Contact us today, to get your machine up and running smoothly</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_eCTCmz",
-        "column_NNbkdm",
-        "column_RGgKiA",
-        "column_fdnWyt",
-        "column_E8V8Pg",
-        "column_TiM3aL"
-      ],
-      "settings": {
-        "title": "Our Servicing Includes",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "square",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 64,
-        "padding_bottom": 64
+        "padding_bottom": 24
       }
     },
     "rich_text_9jDXBN": {
@@ -140,14 +22,14 @@
         "heading_DVMPXB": {
           "type": "heading",
           "settings": {
-            "heading": "Contact Us",
+            "heading": "Get in touch",
             "heading_size": "h1"
           }
         },
         "text_XmYeD6": {
           "type": "text",
           "settings": {
-            "text": "<p>Need to schedule a repair or request more information about our services? Fill out the form below, and one of our experts will get back to you promptly. We’re here to help you with all your power hammer servicing needs.</p>"
+            "text": "<p>Tell us the make and model of your hammer and what it is doing. We will come back to you with parts, advice or a plan to get it running.</p>"
           }
         }
       },
@@ -177,8 +59,6 @@
   },
   "order": [
     "main",
-    "rich_text_RDjCx8",
-    "multicolumn_7x3xkY",
     "rich_text_9jDXBN",
     "contact_form_rjCtwz"
   ]
