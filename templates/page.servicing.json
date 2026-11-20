@@ -63,7 +63,6 @@
         "column_NNbkdm": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/0000401_PicAmb_6-1-scaled.jpg",
             "title": "On Site Service",
             "text": "<p>We provide on-site service, with our skilled engineers traveling directly to your location to resolve any issues efficiently.</p>",
             "link_label": "",
@@ -83,7 +82,6 @@
         "column_fdnWyt": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/0000401_PicAmb_3-scaled.jpg",
             "title": "Off Site Service",
             "text": "<p>Have your hammer serviced at our facility to restore peak performance and reliability.</p>",
             "link_label": "",
