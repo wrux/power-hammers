@@ -49,8 +49,20 @@
     {%- endunless -%}
 
     <slider-component class="slider-mobile-gutter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {%- liquid
+        assign cl_visible = 0
+        for block in section.blocks
+          if block.settings.collection == blank or block.settings.collection.all_products_count > 0
+            assign cl_visible = cl_visible | plus: 1
+          endif
+        endfor
+        assign cl_cols = section.settings.columns_desktop
+        if cl_visible == 4 and cl_cols == 3
+          assign cl_cols = 2
+        endif
+      -%}
       <ul
-        class="collection-list contains-card contains-card--collection{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if section.settings.swipe_on_mobile %} slider slider--tablet grid--peek{% endif %} collection-list--{{ section.blocks.size }}-items"
+        class="collection-list contains-card contains-card--collection{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid grid--{{ cl_cols }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if section.settings.swipe_on_mobile %} slider slider--tablet grid--peek{% endif %} collection-list--{{ section.blocks.size }}-items"
         id="Slider-{{ section.id }}"
         role="list"
       >
