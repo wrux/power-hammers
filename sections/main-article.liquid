@@ -69,6 +69,9 @@
           {{ block.shopify_attributes }}
         >
           {{ article.content }}
+          {%- if article.author == 'George Spooner' -%}
+            <p><em>George Spooner runs PowerHammers and studied blacksmithing and farriery before moving into forging machinery.</em></p>
+          {%- endif -%}
         </div>
 
       {%- when 'share' -%}
