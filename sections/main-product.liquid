@@ -1,7 +1,10 @@
 {%- liquid
-  assign uk_enquiry_only = false
+  assign enquiry_only = false
   if localization.country.iso_code == "GB" and product.vendor == "Anyang ST"
-    assign uk_enquiry_only = true
+    assign enquiry_only = true
+  endif
+  if product and product.price_max == 0
+    assign enquiry_only = true
   endif
 -%}
 <product-info
@@ -508,7 +511,7 @@
 
                 {% else %}
 
-                  {% if product.metafields.custom.disable_buy != true and uk_enquiry_only != true %}
+                  {% if product.metafields.custom.disable_buy != true and enquiry_only != true %}
                     {%- render 'buy-buttons',
                       block: block,
                       product: product,
@@ -520,7 +523,7 @@
                 {% endif %}
 
               {%- when 'buy_buttons' -%}
-                {% if product.metafields.custom.disable_buy != true and uk_enquiry_only != true %}
+                {% if product.metafields.custom.disable_buy != true and enquiry_only != true %}
                 {%- render 'buy-buttons',
                   block: block,
                   product: product,
