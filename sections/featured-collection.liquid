@@ -106,6 +106,9 @@
           {% assign lazy_load = false %}
           {%- liquid
             assign featured_products = section.settings.collection.products
+            if template.name == "index" and collections["power-hammers"].products.size > 0
+              assign featured_products = collections["power-hammers"].products
+            endif
             if localization.country.iso_code == "GB"
               assign uk_sahinler = section.settings.collection.products | where: "vendor", "Sahinler"
               assign uk_saymak = section.settings.collection.products | where: "vendor", "Say-Mak"
