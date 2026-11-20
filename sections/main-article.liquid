@@ -68,7 +68,34 @@
           class="article-template__content page-width page-width--narrow rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {{ block.shopify_attributes }}
         >
-          {{ article.content }}
+          {%- assign price_marker = "<!--anyang-st-prices-->" -%}
+          {%- if article.content contains price_marker -%}
+            {%- assign content_parts = article.content | split: price_marker -%}
+            {{ content_parts[0] }}
+            <table>
+              <thead><tr><th>Model</th><th>Price</th></tr></thead>
+              <tbody>
+                {%- assign st_hammers = collections["power-hammers"].products | where: "vendor", "Anyang ST" -%}
+                {%- for p in st_hammers -%}
+                  <tr>
+                    <td><a href="{{ p.url }}">{{ p.title }}</a></td>
+                    <td>
+                      {%- if localization.country.iso_code == "GB" or p.price_max == 0 -%}
+                        Price on enquiry
+                      {%- elsif p.price_varies or p.metafields.custom.disable_buy == true -%}
+                        From {{ p.price_min | money }}
+                      {%- else -%}
+                        {{ p.price | money }}
+                      {%- endif -%}
+                    </td>
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            </table>
+            {{ content_parts[1] }}
+          {%- else -%}
+            {{ article.content }}
+          {%- endif -%}
           {%- if article.author == 'George Spooner' -%}
             <p><em>George Spooner runs PowerHammers and studied blacksmithing and farriery before moving into machinery sales, service and support.</em></p>
           {%- endif -%}
