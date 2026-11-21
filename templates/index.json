@@ -115,25 +115,6 @@
             "collection": "induction-forges"
           }
         },
-        "featured_collection_GrFWih": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "solid-fuel-forges"
-          }
-        },
-        "featured_collection_LWiweG": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "gas-forges"
-          }
-        },
-        "featured_collection_rj4R8Q": {
-          "type": "featured_collection",
-          "disabled": true,
-          "settings": {
-            "collection": "stands"
-          }
-        },
         "featured_collection_pFNNHg": {
           "type": "featured_collection",
           "settings": {
@@ -145,24 +126,13 @@
           "settings": {
             "collection": "dies"
           }
-        },
-        "featured_collection_9PR4wC": {
-          "type": "featured_collection",
-          "disabled": true,
-          "settings": {
-            "collection": "degating-hammers"
-          }
         }
       },
       "block_order": [
         "featured_collection_JJqU9Y",
         "featured_collection_g4kYtm",
-        "featured_collection_GrFWih",
-        "featured_collection_LWiweG",
-        "featured_collection_rj4R8Q",
         "featured_collection_pFNNHg",
-        "featured_collection_g8Bad3",
-        "featured_collection_9PR4wC"
+        "featured_collection_g8Bad3"
       ],
       "settings": {
         "title": "Our <strong>Product Range</strong>",
@@ -180,20 +150,6 @@
     "collection_list_DrzUqX": {
       "type": "collection-list",
       "blocks": {
-        "featured_collection_fPdHjc": {
-          "type": "featured_collection",
-          "disabled": true,
-          "settings": {
-            "collection": "tanerd"
-          }
-        },
-        "featured_collection_pHUMw7": {
-          "type": "featured_collection",
-          "disabled": true,
-          "settings": {
-            "collection": "madni"
-          }
-        },
         "featured_collection_px38FL": {
           "type": "featured_collection",
           "settings": {
@@ -206,22 +162,10 @@
             "collection": "is-forge"
           }
         },
-        "featured_collection_68xfbW": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "becma"
-          }
-        },
         "featured_collection_bbK6EW": {
           "type": "featured_collection",
           "settings": {
             "collection": "sahinler"
-          }
-        },
-        "featured_collection_LbeP3Y": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "ayang-forging-press"
           }
         },
         "featured_collection_pcJ3xB": {
@@ -229,25 +173,13 @@
           "settings": {
             "collection": "say-mak"
           }
-        },
-        "featured_collection_mNbL38": {
-          "type": "featured_collection",
-          "disabled": true,
-          "settings": {
-            "collection": "ebo"
-          }
         }
       },
       "block_order": [
-        "featured_collection_fPdHjc",
-        "featured_collection_pHUMw7",
         "featured_collection_px38FL",
         "featured_collection_UWTVDM",
-        "featured_collection_68xfbW",
         "featured_collection_bbK6EW",
-        "featured_collection_LbeP3Y",
-        "featured_collection_pcJ3xB",
-        "featured_collection_mNbL38"
+        "featured_collection_pcJ3xB"
       ],
       "settings": {
         "title": "Our <strong>Brands</strong>",
