@@ -35,14 +35,14 @@
         "text_NNGHXb": {
           "type": "text",
           "settings": {
-            "text": "<h2>Forge On</h2>"
+            "text": "<h2>Anyang ST, Sahinler and Say-Mak</h2><h2>We sell and support all three, so we can tell you which suits your work.</h2>"
           }
         },
         "button_tRMPEB": {
           "type": "button",
           "settings": {
-            "button_label": "View Shop",
-            "button_link": "shopify://collections/all",
+            "button_label": "See the hammers",
+            "button_link": "shopify://collections/power-hammers",
             "button_style_secondary": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -75,7 +75,7 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "collection": "all",
+        "collection": "power-hammers",
         "products_to_show": 8,
         "title": "<strong>Power Hammers for Blacksmiths</strong>",
         "heading_size": "h1",
@@ -206,7 +206,7 @@
         "show_view_all": true,
         "show_image": true,
         "show_date": true,
-        "show_author": false,
+        "show_author": true,
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
